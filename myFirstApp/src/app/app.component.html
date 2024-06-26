@@ -1,0 +1,108 @@
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <h1 class="heading">STAR WARS</h1>
+</div>
+<div *ngIf="!openPerson" class="data-container">
+  <div class="filters">
+    <h2 class="filter-header">FILTERS</h2>
+    <div class="filter-group">
+
+      <mat-form-field>
+        <mat-label class="filter-header-label">Movie Name</mat-label>
+        <mat-select [(ngModel)]="movieName">
+          <mat-option *ngFor="let data of movieList" [value]="data.title">
+              {{ data.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-group">
+      <mat-form-field>
+        <mat-label class="filter-header-label">Species</mat-label>
+        <mat-select [(ngModel)]="specieName">
+          <mat-option *ngFor="let data of species" [value]="data.name">
+              {{ data.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="filter-group">
+      <mat-form-field>
+        <mat-label class="filter-header-label">Vehicle</mat-label>
+        <mat-select [(ngModel)]="vehicleName">
+          <mat-option *ngFor="let data of vehicleList" [value]="data.name">
+              {{ data.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-group">
+      <mat-form-field>
+        <mat-label class="filter-header-label">Star Ships</mat-label>
+        <mat-select [(ngModel)]="starship">
+          <mat-option *ngFor="let data of starShips" [value]="data.name">
+              {{ data.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  <div class="filter-group">
+    <mat-form-field>
+      <mat-label class="filter-header-label">Birth Year</mat-label>
+      <mat-select [(ngModel)]="birthYear" multiple>
+        <mat-option *ngFor="let year of allperson" [value]="year.birth_year">
+            {{ year.birth_year }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div style="width: 100%;display: inline-flex;">
+    <button class="search-button" (click)="searchPeople(movieName, specieName, vehicleName, starship, birthYear)">Search</button>
+    <button class="search-button" (click)="resetCharaterList()">Reset</button>
+  </div>
+  </div>
+
+  <div class="search-results">
+    <h2 style="color: rgb(34 155 115);">SEARCH RESULTS</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>SI No.</th>
+          <th>Character Name</th>
+          <th>Species</th>
+          <th>Birth Year</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let data of peopleList; let i = index">
+        <tr>
+          <td class="background">{{0+i}}</td>
+          <td class="background"><a style="cursor: pointer;" (click)="getPersonData(data)">{{data.name}}</a></td>
+          <td class="background">{{(data.species)}}</td>
+          <td class="background">{{data.birth_year}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button class="prev">
+        <span>&lt;</span>
+      </button>
+      <button class="page-number active" data-page="1">1</button>
+      <button class="page-number" data-page="2">2</button>
+      <button class="page-number" data-page="3">3</button>
+      <button class="next">
+        <span>&gt;</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet *ngIf="false"></router-outlet>
+<app-character *ngIf="openPerson" [person]="person"></app-character>

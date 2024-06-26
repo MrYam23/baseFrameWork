@@ -1,0 +1,51 @@
+<!-- PERSON -->
+<div class="data-container">
+    <div class="filters">
+      <h2 class="filter-header">Character</h2>
+       <!-- <div>
+           <img src="/src/assets/Images/world.png" alt="World Map">
+       </div> -->
+       <div class="character">
+        <span class="list">Name: </span>  <span class="list">{{person.name}}</span><br> 
+        <span class="list">SkywalkerBorn: </span>  <span class="list">{{person.birth_year}}</span><br>
+        <span class="list">Gender: </span>  <span class="list">{{person.gender}}</span><br>
+        <span class="list">Height: </span>  <span class="list">{{person.height}}</span><br>
+        <span class="list">Weight: </span>  <span class="list">{{person.mass}}</span><br>
+        <span class="list">Created at: </span>  <span class="list">{{person.created}}</span><br>
+        <span class="list">Edited at: </span>  <span class="list">{{person.edited}}</span><br>
+        <span class="list">Hair Color: </span>  <span class="list">{{person.hair_color}}</span><br>
+        <span class="list">Eye Color: </span>  <span class="list">{{person.eye_color}}</span><br>
+        <span class="list">Skin Color: </span>  <span class="list">{{person.skin_color}}</span><br><br>
+
+
+        <span class="list">Panel Name : </span>  <span class="list"></span><br><br>
+        <span class="list">Species : </span>  <span class="list"></span>
+       </div>
+      
+    </div>
+  
+    <div class="search-results">
+      <div>
+        <h2 class="filter-header-label">Films</h2>
+        <div class="m-b navbar">
+            <span class="list" *ngFor="let data of films">{{data}}<br></span>
+        </div>
+      </div>
+  
+      <div>
+        <h2 class="filter-header-label">Starships</h2>
+        <div class="m-b navbar">
+            <span class="list" *ngFor="let data of starships">{{data}}<br></span>
+        </div>
+      </div>
+      
+      <div>
+        <h2 class="filter-header-label">Vehicles</h2>
+        <div class="m-b navbar">
+            <span class="list" *ngFor="let data of vehicles">{{data}}<br></span>
+        </div>
+      </div>
+      
+  
+    </div>
+  </div>
